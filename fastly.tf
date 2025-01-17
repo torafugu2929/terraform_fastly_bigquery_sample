@@ -30,6 +30,8 @@ resource "fastly_service_vcl" "example" {
     ssl_sni_hostname  = "storage.googleapis.com"
   }
 
+  // redirect http
+  // https://docs.fastly.com/en/guides/forcing-an-https-redirect
   header {
     name        = "HSTS"
     type        = "response"
@@ -40,7 +42,7 @@ resource "fastly_service_vcl" "example" {
     priority = 20
   }
 
-  // キャッシュパージの認証
+  // authenticate purge request
   // https://docs.fastly.com/en/guides/authenticating-api-purge-requests
   header {
     name        = "Fastly Purge"
