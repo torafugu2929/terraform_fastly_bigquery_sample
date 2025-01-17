@@ -1,20 +1,18 @@
 {
     "timestamp": "%{strftime(\{"%Y-%m-%dT%H:%M:%S"\}, time.start) "." time.start.usec_frac}V",
-    "severity": "%{if(resp.status >= 500, "ERROR", if(resp.status >= 400, "WARN", "INFO"))}V",
-    "httpRequest": {
-      "requestMethod": "%{json.escape(req.method)}V",
-      "requestUrl": "%{if(req.is_ssl, "https", "http") "://" if(req.http.Fastly-Orig-Host, req.http.Fastly-Orig-Host, req.http.Host) req.url}V",
-      "requestSize": %{req.bytes_read}V,
-      "status": %{resp.status}V,
-      "responseSize": %{resp.bytes_written}V,
-      "userAgent": "%{json.escape(req.http.User-Agent)}V",
-      "remoteIp": "%{req.http.Fastly-Client-IP}V",
-      "referer": "%{json.escape(req.http.referer)}V",
-      "latency": %{time.elapsed.sec "." time.elapsed.usec_frac}V,
-      "cacheHit": %{if(fastly_info.state ~ "HIT(?:-|\z)", "true", "false")}V,
-      "protocol": "%{json.escape(req.proto)}V"
-    },
-    "trace": "%{json.escape(req.http.x-trace-id)}V",
-    "spanId": "%{json.escape(req.http.x-trace-vcl-span-id)}V"
-  }
-  
+    "client_ip": "%{req.http.Fastly-Client-IP}V",
+    "geo_country": "%{client.geo.country_name}V",
+    "geo_city": "%{client.geo.city}V",
+    "host": "%{if(req.http.Fastly-Orig-Host, req.http.Fastly-Orig-Host, req.http.Host)}V",
+    "url": "%{json.escape(req.url)}V",
+    "request_method": "%{json.escape(req.method)}V",
+    "request_protocol": "%{json.escape(req.proto)}V",
+    "request_referer": "%{json.escape(req.http.referer)}V",
+    "request_user_agent": "%{json.escape(req.http.User-Agent)}V",
+    "response_state": "%{json.escape(fastly_info.state)}V",
+    "response_status": %{resp.status}V,
+    "response_reason": %{if(resp.response, "%22"+json.escape(resp.response)+"%22", "null")}V,
+    "response_body_size": %{resp.body_bytes_written}V,
+    "fastly_server": "%{json.escape(server.identity)}V",
+    "fastly_is_edge": %{if(fastly.ff.visits_this_service == 0, "true", "false")}V
+}

@@ -5,80 +5,78 @@
         "mode": "NULLABLE"
     },
     {
-        "name": "severity",
+        "name": "client_ip",
         "type": "STRING",
         "mode": "NULLABLE"
     },
     {
-        "name": "httpRequest",
-        "type": "RECORD",
-        "mode": "NULLABLE",
-        "fields": [
-            {
-                "name": "requestMethod",
-                "type": "STRING",
-                "mode": "NULLABLE"
-            },
-            {
-                "name": "requestUrl",
-                "type": "STRING",
-                "mode": "NULLABLE"
-            },
-            {
-                "name": "requestSize",
-                "type": "INTEGER",
-                "mode": "NULLABLE"
-            },
-            {
-                "name": "status",
-                "type": "INTEGER",
-                "mode": "NULLABLE"
-            },
-            {
-                "name": "responseSize",
-                "type": "INTEGER",
-                "mode": "NULLABLE"
-            },
-            {
-                "name": "userAgent",
-                "type": "STRING",
-                "mode": "NULLABLE"
-            },
-            {
-                "name": "remoteIp",
-                "type": "STRING",
-                "mode": "NULLABLE"
-            },
-            {
-                "name": "referer",
-                "type": "STRING",
-                "mode": "NULLABLE"
-            },
-            {
-                "name": "latency",
-                "type": "FLOAT",
-                "mode": "NULLABLE"
-            },
-            {
-                "name": "cacheHit",
-                "type": "BOOLEAN",
-                "mode": "NULLABLE"
-            },
-            {
-                "name": "protocol",
-                "type": "STRING",
-                "mode": "NULLABLE"
-            }
-        ]
-    },
-    {
-        "name": "trace",
+        "name": "geo_country",
         "type": "STRING",
         "mode": "NULLABLE"
     },
     {
-        "name": "spanId",
+        "name": "geo_city",
         "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "host",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "url",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "request_method",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "request_protocol",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "request_referer",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "request_user_agent",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "response_state",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "response_status",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "response_reason",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "response_body_size",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "fastly_server",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "fastly_is_edge",
+        "type": "BOOLEAN",
         "mode": "NULLABLE"
     }
 ]
