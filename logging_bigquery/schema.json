@@ -1,0 +1,85 @@
+[
+    {
+        "name": "timestamp",
+        "type": "TIMESTAMP",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "severity",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "httpRequest",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+            {
+                "name": "requestMethod",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "requestUrl",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "requestSize",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "status",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "responseSize",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "userAgent",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "remoteIp",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "referer",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "latency",
+                "type": "FLOAT",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "cacheHit",
+                "type": "BOOLEAN",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "protocol",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            }
+        ]
+    },
+    {
+        "name": "trace",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "spanId",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    }
+  ]
+  
