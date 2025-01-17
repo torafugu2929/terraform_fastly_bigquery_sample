@@ -1,10 +1,10 @@
 
 locals {
-    domain_name = "example.com"
-    backend_name = "example-backend"
-    backend_address = "example-backend.storage.googleapis.com"
+  domain_name     = "example.com"
+  backend_name    = "example-backend"
+  backend_address = "example-backend.storage.googleapis.com"
 
-    one_year                                  = 31536000
+  one_year = 31536000
 }
 
 resource "fastly_tls_subscription" "example_com" {
@@ -61,9 +61,9 @@ resource "fastly_service_vcl" "example" {
 
 
   vcl {
-    name = "vcl_main"
+    name    = "vcl_main"
     content = file("${path.module}/vcl/main.vcl")
-    main = true
+    main    = true
   }
 
 
