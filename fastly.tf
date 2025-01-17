@@ -30,38 +30,6 @@ resource "fastly_service_vcl" "example" {
     ssl_sni_hostname  = "storage.googleapis.com"
   }
 
-  // redirect http
-  // https://docs.fastly.com/en/guides/forcing-an-https-redirect
-  header {
-    name        = "HSTS"
-    type        = "response"
-    action      = "set"
-    destination = "http.Strict-Transport-Security"
-
-    source   = "\"max-age=${local.one_year}\""
-    priority = 20
-  }
-
-  // authenticate purge request
-  // https://docs.fastly.com/en/guides/authenticating-api-purge-requests
-  header {
-    name        = "Fastly Purge"
-    type        = "request"
-    action      = "set"
-    destination = "http.Fastly-Purge-Requires-Auth"
-    source      = "\"1\""
-
-    request_condition = "request is PURGE"
-    priority          = 30
-  }
-  condition {
-    name      = "request is PURGE"
-    statement = "req.request == \"FASTLYPURGE\""
-    type      = "REQUEST"
-    priority  = 10
-  }
-
-
   vcl {
     name    = "vcl_main"
     content = file("${path.module}/vcl/main.vcl")
